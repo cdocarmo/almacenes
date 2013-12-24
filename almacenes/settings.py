@@ -111,6 +111,7 @@ ROOT_URLCONF = 'almacenes.urls'
 WSGI_APPLICATION = 'almacenes.wsgi.application'
 
 TEMPLATE_DIRS = (
+    RAIZ_PROYECTO.child('templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
