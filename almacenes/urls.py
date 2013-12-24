@@ -5,6 +5,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    #INDEX
+    url(r'^$', 'almacenes.views.home', name='index'),
     #USUARIOS
     url(r'^usuarios/alta/$', 'usuarios.views.alta', name='alta_usuario'),
     url(r'^usuarios/edicion/$', 'usuarios.views.edicion', name='edicion_usuario'),
