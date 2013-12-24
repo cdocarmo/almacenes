@@ -17,8 +17,8 @@ def alta(request):
 
 
 def edicion(request):
-    return render_to_response('depositos/alta.html', context_instance=RequestContext(request))
+    return render_to_response('depositos/edicion.html', context_instance=RequestContext(request))
 
 
 def baja(request):
-    return render_to_response('depositos/alta.html', context_instance=RequestContext(request))
+    return render_to_response('depositos/baja.html', context_instance=RequestContext(request))

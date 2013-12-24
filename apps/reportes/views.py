@@ -12,8 +12,8 @@ def alta(request):
 
 
 def edicion(request):
-    return render_to_response('reportes/alta.html', context_instance=RequestContext(request))
+    return render_to_response('reportes/edicion.html', context_instance=RequestContext(request))
 
 
 def baja(request):
-    return render_to_response('reportes/alta.html', context_instance=RequestContext(request))
+    return render_to_response('reportes/baja.html', context_instance=RequestContext(request))
