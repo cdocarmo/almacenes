@@ -1,14 +1,13 @@
 from django.conf.urls import patterns, include, url
-
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
     #INDEX
-    url(r'^$', 'almacenes.views.home', name='index'),
+    url(r'^$', 'apps.depositos.views.index', name='index'),
     #USUARIOS
-    url(r'^usuarios/alta/$', 'usuarios.views.alta', name='alta_usuario'),
+    url(r'^usuarios/alta/$', 'apps.usuarios.views.alta', name='alta_usuario'),
     url(r'^usuarios/edicion/$', 'usuarios.views.edicion', name='edicion_usuario'),
     url(r'^usuarios/baja/$', 'usuarios.views.baja', name='baja_usuario'),
     #PRODUCTOS
