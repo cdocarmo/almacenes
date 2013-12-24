@@ -134,6 +134,8 @@ INSTALLED_APPS = (
     'apps.usuarios',
 )
 
+AUTH_PROFILE_MODULE = 'apps.usuarios.PerfilDeUsuario'
+
 # Redireccionamientos de login/logout
 #from django.core.urlresolvers import reverse_lazy
 #from apps.sueldos import urls
