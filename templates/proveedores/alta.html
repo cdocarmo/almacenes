@@ -1,0 +1,14 @@
+<doctype html5>
+<html>
+<head>
+	<title>Productos - Alta</title>
+</head>
+<body>
+	<h1>Alta de Productos</h1>
+	<form action="/contact/" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Enviar" />
+	</form>
+	<a href="/">Volver</a>
+</body>
+</html>
