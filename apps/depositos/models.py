@@ -10,4 +10,4 @@ class Deposito(models.Model):
     
 class Ubicacion(models.Model):
     nombre = models.CharField(max_length=24)
-    deposito = models.ForeignKey('Deposito')
+    deposito = models.OneToOneField('Deposito')

@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'apps.reportes',
     'apps.productos',
     'apps.usuarios',
+    'apps.proveedores',
 )
 
 AUTH_PROFILE_MODULE = 'apps.usuarios.PerfilDeUsuario'

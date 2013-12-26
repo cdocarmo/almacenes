@@ -1,9 +1,10 @@
 from django.db import models
-from apps.depositos.models import Ubicacion # sera necesario
+from apps.depositos.models import Ubicacion
+from apps.proveedores.models import Proveedor
 
 # Create your models here.
 
-class ProductoDescripcion(models.Model):
+class Producto(models.Model):
     '''
     Este modelo es una descripcion del producto, es informacion que comparten
     todas las unidades del mismo producto.
@@ -13,27 +14,23 @@ class ProductoDescripcion(models.Model):
                       ('NAC', 'Nacional'),
                       ('IMP', 'Importado'),
                       )
-    
+    codigo = models.CharField(max_length=10)
     nombre = models.CharField(max_length=24)
+    familia = models.CharField(max_length=24)
+    subfamilia = models.CharField(max_length=24)
     marca = models.CharField(max_length=24)
+    costo = models.DecimalField(max_digits=10, decimal_places=3)
     origen = models.CharField(max_length=3, choices=ORIGEN_CHOICES)
-    
-    # no se me ocurren otros campos... GF
-    
-class ProductoStock(models.Model):
-    '''
-    Este modelo lleva el conteo del stock.
-    '''
-    producto = models.ForeignKey('ProductoDescripcion')
-    stock = models.IntegerField(default=0)
+    proveedor = models.ForeignKey('proveedores.Proveedor')
+    stock = models.IntegerField(default=1)
+    ubicacion = models.ForeignKey('depositos.Ubicacion', null=True)
     
     
-class ProductoUnidad(models.Model):
+class Vencimiento(models.Model):
     '''
-    Este modelo representa cada unidad y como tal su propio codigo de barras (si corresponde), 
-    su vencimiento y ubicacion.
+    Este modelo representa un vencimiento.
     '''
-    codigo_barras = models.CharField(max_length=13)
+    cantidad = models.IntegerField(default=1)
     vencimiento = models.DateField()
-    ubicacion = models.ForeignKey('depositos.Ubicacion')
+    producto = models.ForeignKey('Producto')
     
