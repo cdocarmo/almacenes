@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
+from django.core.urlresolvers import reverse_lazy
 # from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 # from django.utils import simplejson
@@ -63,6 +64,7 @@ class Edicion(UpdateView):
     # form_class = PortfoliosCreateForm
     model = Deposito
     template_name = 'depositos/edicion.html'
+    success_url = reverse_lazy('listado_depositos')
 
     def get(self, request, **kwargs):
         self.object = Deposito.objects.get(id=self.kwargs['id'])

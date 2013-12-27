@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
+from django.core.urlresolvers import reverse_lazy
 #from django.views.generic.edit import FormView
 # from django.http import HttpResponse
 # from django.utils import simplejson
@@ -27,6 +28,7 @@ class Edicion(UpdateView):
     # form_class = PortfoliosCreateForm
     model = Producto
     template_name = 'productos/edicion.html'
+    success_url = reverser_lazy('listado_productos')
 
     def get(self, request, **kwargs):
         self.object = Producto.objects.get(id=self.kwargs['id'])
