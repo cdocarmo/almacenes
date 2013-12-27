@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-	<head>
-		<title>Administraci&oacute;n de Almacenes - Index</title>
-	</head>
-	<body>
-		<h1>Administraci&oacute;n de Almacenes - Index</h1>
-		<h2>Usuarios</h2>
+{% block title %}
+ <title>Administraci&oacute;n de Almacenes - Index</title>
+{% endblock %}
+
+{% block content %}
+<h2>Usuarios</h2>
 		<ul>
 			<li>
 				<a href="/usuarios/alta/">Alta</a>
@@ -66,5 +65,4 @@
 				<a href="/reportes/listado-de-productos/">Listado de Productos</a>
 			</li>
 		</ul>
-	</body>
-</html> 
+{% endblock %}

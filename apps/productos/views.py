@@ -28,7 +28,7 @@ class Edicion(UpdateView):
     # form_class = PortfoliosCreateForm
     model = Producto
     template_name = 'productos/edicion.html'
-    success_url = reverser_lazy('listado_productos')
+    success_url = reverse_lazy('listado_productos')
 
     def get(self, request, **kwargs):
         self.object = Producto.objects.get(id=self.kwargs['id'])

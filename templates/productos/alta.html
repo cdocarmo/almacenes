@@ -1,14 +1,13 @@
-<doctype html5>
-<html>
-<head>
-	<title>Productos - Alta</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+ <title>Productos - Alta</title>
+{% endblock %}
+
+{% block content %}
 	<h1>Alta de Productos</h1>
 	<form action="" method="post">{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Enviar" />
 	</form>
-	<a href="/">Volver</a>
-</body>
-</html>
+{% endblock %}

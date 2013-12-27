@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       {% block title %}
+       {% endblock %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+        <!-- Bootstrap -->
+    	<link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet" media="screen">
+    	<!--------------->
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.7.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <nav class="navbar navbar-default" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">Administraci&oacute;n de Almacenes</a>
+		  </div>
+		
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="/">Inicio</a></li>
+		      <li><a href="/depositos/alta">Almacenes</a></li>
+		      <li><a href="/productos/alta">Productos</a></li>
+		      <li><a href="/proveedores/alta">Proveedores</a></li>
+		      <li><a href="/reportes/alta">Reportes</a></li>
+		    </ul>
+		    <form class="navbar-form navbar-left" role="search">
+		      <div class="form-group">
+		        <input type="text" class="form-control" placeholder="Search">
+		      </div>
+		      <button type="submit" class="btn btn-default">Buscar</button>
+		    </form>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nombre de Usuario <b class="caret"></b></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#">Editar Usuario</a></li>
+		          <li class="divider"></li>
+		          <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+		        </ul>
+		      </li>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+		
+		{% block content %}
+		{% endblock %}
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/masked_input_1_3_1.js"></script>
+        <script src="{{STATIC_URL}}js/plugins.js"></script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<!--<script src="https://code.jquery.com/jquery.js"></script>-->
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
  
