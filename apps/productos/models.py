@@ -25,6 +25,9 @@ class Producto(models.Model):
     stock = models.IntegerField(default=1)
     ubicacion = models.ForeignKey('depositos.Ubicacion', null=True)
     
+    def __unicode__(self):
+        return self.nombre
+    
     
 class Vencimiento(models.Model):
     '''
@@ -33,4 +36,7 @@ class Vencimiento(models.Model):
     cantidad = models.IntegerField(default=1)
     vencimiento = models.DateField()
     producto = models.ForeignKey('Producto')
+    
+    def __unicode__(self):
+        return self.vencimiento
     
