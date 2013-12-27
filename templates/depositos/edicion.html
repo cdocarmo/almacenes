@@ -1,10 +1,15 @@
 <doctype html5>
 <html>
 <head>
-	<title>Usuarios - Edici&oacute;n</title>
+	<title>Dep&oacute;sitos - Edici&oacute;n</title>
 </head>
 <body>
-	<h1>Edici&oacute; de Usuarios</h1>
-	<a href="/">Volver</a>
+	<h1>Edici&oacute; de Dep&oacute;sitos</h1>
+	<form action="" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Guardar" />
+	</form>
+	<a href="../../listado/">Volver</a>
+	<a href="/">Volver a Index</a>
 </body>
 </html> 

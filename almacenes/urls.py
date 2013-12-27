@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 
-from apps.usuarios.views import Alta as AltaUsuario
-from apps.depositos.views import Alta as AltaDeposito, Edicion as EdicionDeposito, Listado as ListadoDeposito
-from apps.productos.views import Alta as AltaProducto, Edicion as EdicionProducto, Listado as ListadoProducto
-from apps.proveedores.views import Alta as AltaProveedor, Edicion as EdicionProveedor, Listado as ListadoProveedor
+from apps.usuarios.views import Alta as AltaUsuario, Edicion as EdicionUsuario
+from apps.depositos.views import Alta as AltaDeposito, Listado as ListadoDeposito ,Edicion as EdicionDeposito
+from apps.productos.views import Alta as AltaProducto, Listado as ListadoProducto ,Edicion as EdicionProducto
+from apps.proveedores.views import Alta as AltaProveedor, Listado as ListadoProveedor ,Edicion as EdicionProveedor
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -13,21 +13,21 @@ urlpatterns = patterns('',
     url(r'^$', 'apps.depositos.views.index', name='index'),
     #USUARIOS
     url(r'^usuarios/alta/$', AltaUsuario.as_view(), name='alta_usuario'),
-    url(r'^usuarios/edicion/$', 'apps.usuarios.views.edicion', name='edicion_usuario'),
+    url(r'^usuarios/edicion/$', EdicionUsuario.as_view(), name='edicion_usuario'),
     url(r'^usuarios/baja/$', 'apps.usuarios.views.baja', name='baja_usuario'),
     #PRODUCTOS
     url(r'^productos/alta/$', AltaProducto.as_view(), name='alta_producto'),
-    url(r'^productos/edicion/$', EdicionProducto.as_view(), name='edicion_producto'),
+    url(r'^productos/edicion/(?P<id>\d+)/$', EdicionProducto.as_view(), name='edicion_producto'),
     url(r'^productos/listado/$', ListadoProducto.as_view(), name='listado_producto'),
     url(r'^productos/baja/$', 'apps.productos.views.baja', name='baja_producto'),
     #PROVEEDORES
     url(r'^proveedores/alta/$', AltaProveedor.as_view(), name='alta_proveedor'),
-    url(r'^proveedores/edicion/$', EdicionProveedor.as_view() , name='edicion_proveedor'),
+    url(r'^proveedores/edicion/(?P<id>\d+)/$', EdicionProveedor.as_view() , name='edicion_proveedor'),
     url(r'^proveedores/listado/$', ListadoProveedor.as_view(), name='listado_proveedor'),
     # url(r'^proveedores/baja/$', '', name='baja_producto'),
     #DEPOSITOS
     url(r'^depositos/alta/$', AltaDeposito.as_view(), name='alta_deposito'),
-    url(r'^depositos/edicion/$', EdicionDeposito.as_view(), name='edicion_deposito'),
+    url(r'^depositos/edicion/(?P<id>\d+)/$', EdicionDeposito.as_view(), name='edicion_deposito'),
     url(r'^depositos/listado/$', ListadoDeposito.as_view(), name='listado_deposito'),
     url(r'^depositos/baja/$', 'apps.depositos.views.baja', name='baja_deposito'),
     #REPORTES

@@ -4,7 +4,12 @@
 	<title>Productos - Edici&oacute;n</title>
 </head>
 <body>
-	<h1>Edici&oacute; de Productos</h1>
-	<a href="/">Volver</a>
+	<h1>Edici&oacute;n de Productos</h1>
+	<form action="" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Guardar" />
+	</form>
+	<a href="../../listado/">Volver</a>
+	<a href="/">Volver a Index</a>
 </body>
 </html> 
