@@ -1,0 +1,17 @@
+<doctype html5>
+<html>
+<head>
+	<title>Proveedores - Edici&oacute;n</title>
+</head>
+<body>
+	<h1>Edici&oacute;n de Proveedores</h1>
+	<ul>
+		{% for proveedor in object_list %}
+		<li><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.nombre }} - {{ proveedor.telefono1 }}</a></li>
+		{% empty %}
+		<li>No existen proveedores registrados aun.</li>
+		{% endfor %}
+	</ul>
+	<a href="/">Volver</a>
+</body>
+</html> 

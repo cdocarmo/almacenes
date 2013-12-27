@@ -1,0 +1,17 @@
+<doctype html5>
+<html>
+<head>
+	<title>Dep&oacute;sitos - Listado</title>
+</head>
+<body>
+	<h1>Listado de Dep&oacute;sitos</h1>
+	<ul>
+		{% for deposito in object_list %}
+		<li><a href="../edicion/{{ deposito.id }}/">{{ deposito.nombre }} - {{ deposito.observacion }}</a></li>
+		{% empty %}
+		<li>No existen despositos registrados aun.</li>
+		{% endfor %}
+	</ul>
+	<a href="/">Volver</a>
+</body>
+</html> 

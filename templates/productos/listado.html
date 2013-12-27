@@ -1,0 +1,17 @@
+<doctype html5>
+<html>
+<head>
+	<title>Productos - Listado</title>
+</head>
+<body>
+	<h1>Listado de Productos</h1>
+	<ul>
+		{% for producto in object_list %}
+		<li><a href="../edicion/{{ producto.id }}/">{{ producto.nombre }} - {{ producto.costo }} - {{ producto.proveedor.nombre }}</a></li>
+		{% empty %}
+		<li>No existen productos registrados aun.</li>
+		{% endfor %}
+	</ul>
+	<a href="/">Volver</a>
+</body>
+</html> 
