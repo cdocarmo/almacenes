@@ -4,10 +4,30 @@
  <title>Productos - Alta</title>
 {% endblock %}
 
+{% block link_productos %}
+class="active"
+{% endblock %}
+
+{% block tab_crear %}
+/productos/alta/
+{% endblock %}
+{% block tab_editar %}
+/productos/listado/
+{% endblock %}
+{% block tab_eliminar %}
+/productos/baja/
+{% endblock %}
+
 {% block content %}
-	<h1>Alta de Productos</h1>
-	<form action="" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Enviar" />
-	</form>
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="crear-producto">
+				  	<h1>Alta de Productos</h1>
+						<form action="" method="post" class="form">{% csrf_token %}
+							{{ form.as_p }}
+							<input type="submit" value="Enviar" />
+						</form>
+				  </div>
+				</div>
+			</div>
 {% endblock %}

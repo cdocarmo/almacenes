@@ -1,17 +1,50 @@
-<doctype html5>
-<html>
-<head>
-	<title>Proveedores - Edici&oacute;n</title>
-</head>
-<body>
-	<h1>Edici&oacute;n de Proveedores</h1>
-	<ul>
-		{% for proveedor in object_list %}
-		<li><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.nombre }} - {{ proveedor.telefono1 }}</a></li>
-		{% empty %}
-		<li>No existen proveedores registrados aun.</li>
-		{% endfor %}
-	</ul>
-	<a href="/">Volver</a>
-</body>
-</html> 
+{% extends "base.html" %}
+
+{% block title %}
+ <title>Productos - Alta</title>
+{% endblock %}
+
+{% block link_productos %}
+class="active"
+{% endblock %}
+
+{% block tab_crear %}
+/productos/alta/
+{% endblock %}
+{% block tab_editar %}
+/productos/listado/
+{% endblock %}
+{% block tab_eliminar %}
+/productos/baja/
+{% endblock %}
+
+{% block content %}
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="crear-producto">
+					<h1>Edici&oacute;n de Proveedores</h1>
+					<table class="table table-striped">
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Telefono</th>
+							<th>Domicilio</th>
+						</tr>
+						{% for proveedor in object_list %}
+						<a href="../edicion/{{ proveedor.id }}/">
+							<tr>
+								<td>{{ proveedor.id }}</td>
+								<td>{{ proveedor.nombre }}</td>
+								<td>{{ proveedor.telefono1 }}</td>
+								<td>{{ proveedor.domicilio }}</td>
+							</tr>
+						</a>
+						{% empty %}
+						<tr>No existen proveedores registrados aun.</tr>
+						{% endfor %}
+					</table>
+					</div>
+				</div>
+			</div>
+{% endblock %}
+

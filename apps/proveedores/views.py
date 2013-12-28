@@ -16,11 +16,18 @@ class Alta(CreateView):
     template_name = 'proveedores/alta.html'
     model = Proveedor
     success_url = "/"
+    ubicacion = "proveedores_alta"
+    
+    def get_context_data(self, **kwargs):
+        context = super(Alta, self).get_context_data(**kwargs)
+        context['ubicacion'] = self.ubicacion
+        return context
     
     
 class Listado(ListView):
     template_name = 'proveedores/listado.html'
     model = Proveedor
+    
     
 class Edicion(UpdateView):
     # form_class = PortfoliosCreateForm

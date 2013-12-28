@@ -1,17 +1,54 @@
-<doctype html5>
-<html>
-<head>
-	<title>Productos - Listado</title>
-</head>
-<body>
-	<h1>Listado de Productos</h1>
-	<ul>
-		{% for producto in object_list %}
-		<li><a href="../edicion/{{ producto.id }}/">{{ producto.nombre }} - {{ producto.costo }} - {{ producto.proveedor.nombre }}</a></li>
-		{% empty %}
-		<li>No existen productos registrados aun.</li>
-		{% endfor %}
-	</ul>
-	<a href="/">Volver</a>
-</body>
+{% extends "base.html" %}
+
+{% block title %}
+ <title>Productos - Edici&oacute;n</title>
+{% endblock %}
+
+{% block link_productos %}
+class="active"
+{% endblock %}
+
+{% block tab_crear %}
+/productos/alta/
+{% endblock %}
+{% block tab_editar %}
+/productos/listado/
+{% endblock %}
+{% block tab_eliminar %}
+/productos/baja/
+{% endblock %}
+
+{% block content %}
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="crear-producto">
+					<!--<h1>Edici&oacute;n de Productos</h1>-->
+					<table class="table table-striped">
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Costo</th>
+							<th>Stock</th>
+						</tr>
+						{% for producto in object_list %}
+						
+							<tr>
+								
+								<td><a href="../edicion/{{ producto.id }}/">{{ producto.id }}</a></td>
+								<td><a href="../edicion/{{ producto.id }}/">{{ producto.nombre }}</a></td>
+								<td><a href="../edicion/{{ producto.id }}/">{{ producto.costo }}</a></td>
+								<td><a href="../edicion/{{ producto.id }}/">{{ producto.stock }}</a></td>
+								
+							</tr>
+						
+						{% empty %}
+						<tr>No existen proveedores registrados aun.</tr>
+						{% endfor %}
+					</table>
+					</div>
+				</div>
+			</div>
+{% endblock %}
+
+
 </html> 

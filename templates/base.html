@@ -38,15 +38,15 @@
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="/">Inicio</a></li>
-		      <li><a href="/depositos/alta">Almacenes</a></li>
-		      <li><a href="/productos/alta">Productos</a></li>
-		      <li><a href="/proveedores/alta">Proveedores</a></li>
-		      <li><a href="/reportes/alta">Reportes</a></li>
+		      <li {% block link_inicio %}{% endblock %}><a href="/">Inicio</a></li>
+		      <li {% block link_almacenes %}{% endblock %}><a href="/depositos/alta">Almacenes</a></li>
+		      <li {% block link_productos %}{% endblock %}><a href="/productos/alta">Productos</a></li>
+		      <li {% block link_proveedores %}{% endblock %}><a href="/proveedores/alta">Proveedores</a></li>
+		      <li {% block link_reportes %}{% endblock %}><a href="/reportes/alta">Reportes</a></li>
 		    </ul>
 		    <form class="navbar-form navbar-left" role="search">
 		      <div class="form-group">
-		        <input type="text" class="form-control" placeholder="Search">
+		        <input type="text" class="form-control" placeholder="Buscar">
 		      </div>
 		      <button type="submit" class="btn btn-default">Buscar</button>
 		    </form>
@@ -63,19 +63,32 @@
 		  </div><!-- /.navbar-collapse -->
 		</nav>
 		
-		{% block content %}
-		{% endblock %}
+		<section id="contenidos" class="row">
+			<!-- Nav tabs -->
+			<div class="col-md-3">
+				<ul class="nav nav-tabs nav-pills nav-stacked">
+				  <li class="active"><a href="{% block tab_crear %}{% endblock %}" data-toggle="tab">Crear</a></li>
+				  <li><a href="{% block tab_editar %}{% endblock %}" data-toggle="tab">Editar</a></li>
+				  <li><a href="{% block tab_eliminar %}{% endblock %}" data-toggle="tab">Eliminar</a></li>
+				</ul>
+			</div>
+			<!-- Tab panes -->
+			{% block content %}
+			
+			{% endblock %}
+		</section>
+		
+		
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="{{STATIC_URL}}js/masked_input_1_3_1.js"></script>
-        <script src="{{STATIC_URL}}js/plugins.js"></script>
+        <!--<script src="{{STATIC_URL}}js/plugins.js"></script>-->
         <script src="{{STATIC_URL}}js/main.js"></script>
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<!--<script src="https://code.jquery.com/jquery.js"></script>-->
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    	<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    	<!--<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

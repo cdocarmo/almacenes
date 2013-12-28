@@ -4,6 +4,10 @@
  <title>Proveedores - Alta</title>
 {% endblock %}
 
+{% block link_proveedores %}
+class="active"
+{% endblock %}
+
 {% block content %}
 	<h1>Alta de Proveedores</h1>
 	<form action="" method="post">{% csrf_token %}
