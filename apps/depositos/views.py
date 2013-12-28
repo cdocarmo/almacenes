@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 # from django.utils import simplejson
 # from django.core.exceptions import ObjectDoesNotExist
 
-from .forms import AltaDeDeposito, UbicacionFormSet
+from .forms import AltaDeDeposito, AltaDeUbicacion
 from .models import Deposito
 
 def index(request):
@@ -22,22 +22,21 @@ class Alta(CreateView):
     template_name = 'depositos/alta.html'
     model = Deposito
     form_class = AltaDeDeposito
+    form_class_segundo = UbicacionFormSet
     success_url = '/'
     
     def get(self, request, *args, **kwargs):
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        ubicacion_form = UbicacionFormSet()
-        return self.render_to_response(
-            self.get_context_data(form=form,
-                                  ubicacion_form=ubicacion_form))
+        form_ubicacion = form_class_segundo()
+        return self.render_to_response(self.get_context_data(form=form, form_ubicacion=form_ubicacion))
     
     def post(self, request, *args, **kwargs):
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        ubicacion_form = UbicacionFormSet(self.request.POST)
+        ubicacion_form = form_class_segundo(self.request.POST)
         if (form.is_valid() and ubicacion_form.is_valid()):
             return self.form_valid(form, ubicacion_form)
         else:

@@ -12,7 +12,7 @@ class Deposito(models.Model):
     
     
 class Ubicacion(models.Model):
-    nombre = models.CharField(max_length=24)
+    nombre = models.CharField('Ubicacion', max_length=24)
     deposito = models.OneToOneField('Deposito')
     
     def __unicode__(self):

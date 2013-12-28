@@ -28,8 +28,7 @@ class="active"
 				  <div class="tab-pane active" id="crear-producto">
 					<form action="" method="post">{% csrf_token %}
 						{{ form.as_p }}
-						{{ ubicacion_form.management_form }}
-						{{ ubicacion_form.as_p }}
+						{{ form_ubicacion.as_p }}
 						<input type="submit" value="Enviar" />
 					</form>
 				  </div>
