@@ -8,13 +8,17 @@
 class="active"
 {% endblock %}
 
-{% block tab_crear %}
+{% block tab_editar %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
 /productos/alta/
 {% endblock %}
-{% block tab_editar %}
+{% block link_editar %}
 /productos/listado/
 {% endblock %}
-{% block tab_eliminar %}
+{% block link_eliminar %}
 /productos/baja/
 {% endblock %}
 
@@ -50,5 +54,3 @@ class="active"
 			</div>
 {% endblock %}
 
-
-</html> 

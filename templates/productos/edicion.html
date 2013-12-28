@@ -1,15 +1,37 @@
-<doctype html5>
-<html>
-<head>
-	<title>Productos - Edici&oacute;n</title>
-</head>
-<body>
-	<h1>Edici&oacute;n de Productos</h1>
-	<form action="" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Guardar" />
-	</form>
-	<a href="../../listado/">Volver</a>
-	<a href="/">Volver a Index</a>
-</body>
-</html> 
+{% extends "base.html" %}
+
+{% block title %}
+ <title>Productos - Alta</title>
+{% endblock %}
+
+{% block link_productos %}
+class="active"
+{% endblock %}
+
+{% block tab_editar %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
+/productos/alta/
+{% endblock %}
+{% block link_editar %}
+/productos/listado/
+{% endblock %}
+{% block link_eliminar %}
+/productos/baja/
+{% endblock %}
+
+{% block content %}
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="editar-producto">
+						<form action="" method="post" class="form">{% csrf_token %}
+							{{ form.as_p }}
+							<a href="../../listado/" class="btn btn-default">Volver</a>
+							<input type="submit" value="Enviar" class="btn btn-success"/>
+						</form>
+				  </div>
+				</div>
+			</div>
+{% endblock %}

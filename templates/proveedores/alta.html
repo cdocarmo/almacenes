@@ -8,10 +8,29 @@
 class="active"
 {% endblock %}
 
+{% block tab_crear %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
+/proveedores/alta/
+{% endblock %}
+{% block link_editar %}
+/proveedores/listado/
+{% endblock %}
+{% block link_eliminar %}
+/proveedores/baja/
+{% endblock %}
+
 {% block content %}
-	<h1>Alta de Proveedores</h1>
-	<form action="" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Enviar" />
-	</form>
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="crear-proveedor">
+					<form action="" method="post">{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" value="Enviar" />
+					</form>
+					</div>
+				</div>
+			</div>
 {% endblock %}

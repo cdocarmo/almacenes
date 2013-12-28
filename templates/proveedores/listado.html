@@ -4,25 +4,28 @@
  <title>Productos - Alta</title>
 {% endblock %}
 
-{% block link_productos %}
+{% block link_proveedores %}
 class="active"
 {% endblock %}
 
-{% block tab_crear %}
-/productos/alta/
-{% endblock %}
 {% block tab_editar %}
-/productos/listado/
+class="active"
 {% endblock %}
-{% block tab_eliminar %}
-/productos/baja/
+
+{% block link_crear %}
+/proveedores/alta/
+{% endblock %}
+{% block link_editar %}
+/proveedores/listado/
+{% endblock %}
+{% block link_eliminar %}
+/proveedores/baja/
 {% endblock %}
 
 {% block content %}
 			<div class="col-md-9">
 				<div class="tab-content">
 				  <div class="tab-pane active" id="crear-producto">
-					<h1>Edici&oacute;n de Proveedores</h1>
 					<table class="table table-striped">
 						<tr>
 							<th>Id</th>
@@ -31,12 +34,11 @@ class="active"
 							<th>Domicilio</th>
 						</tr>
 						{% for proveedor in object_list %}
-						<a href="../edicion/{{ proveedor.id }}/">
 							<tr>
-								<td>{{ proveedor.id }}</td>
-								<td>{{ proveedor.nombre }}</td>
-								<td>{{ proveedor.telefono1 }}</td>
-								<td>{{ proveedor.domicilio }}</td>
+								<td><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.id }}</a></td>
+								<td><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.nombre }}</a></td>
+								<td><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.telefono1 }}</a></td>
+								<td><a href="../edicion/{{ proveedor.id }}/">{{ proveedor.domicilio }}</a></td>
 							</tr>
 						</a>
 						{% empty %}

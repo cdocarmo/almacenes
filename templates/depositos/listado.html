@@ -1,17 +1,57 @@
-<doctype html5>
-<html>
-<head>
-	<title>Dep&oacute;sitos - Listado</title>
-</head>
-<body>
-	<h1>Listado de Dep&oacute;sitos</h1>
-	<ul>
-		{% for deposito in object_list %}
-		<li><a href="../edicion/{{ deposito.id }}/">{{ deposito.nombre }} - {{ deposito.observacion }}</a></li>
-		{% empty %}
-		<li>No existen despositos registrados aun.</li>
-		{% endfor %}
-	</ul>
-	<a href="/">Volver</a>
-</body>
-</html> 
+{% extends "base.html" %}
+
+{% block title %}
+ <title>Dep&oacute;sitos - Edici&oacute;n</title>
+{% endblock %}
+
+{% block link_almacenes %}
+class="active"
+{% endblock %}
+
+{% block tab_editar %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
+/depositos/alta/
+{% endblock %}
+{% block link_editar %}
+/depositos/listado/
+{% endblock %}
+{% block link_eliminar %}
+/depositos/baja/
+{% endblock %}
+
+{% block content %}
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="listado-depositos">
+					<!--<h1>Edici&oacute;n de Productos</h1>-->
+					<table class="table table-striped">
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Observaci&oacute;n</th>
+							<th>Encargado</th>
+						</tr>
+						{% for deposito in object_list %}
+						
+							<tr>
+								
+								<td><a href="../edicion/{{ deposito.id }}/">{{ deposito.id }}</a></td>
+								<td><a href="../edicion/{{ deposito.id }}/">{{ deposito.nombre }}</a></td>
+								<td><a href="../edicion/{{ deposito.id }}/">{{ deposito.observacion }}</a></td>
+								<td><a href="../edicion/{{ deposito.id }}/">{{ deposito.encargado }}</a></td>
+								
+							</tr>
+						
+						{% empty %}
+						<tr>No existen dep&oacute;sitos registrados aun.</tr>
+						{% endfor %}
+					</table>
+					</div>
+				</div>
+			</div>
+{% endblock %}
+
+

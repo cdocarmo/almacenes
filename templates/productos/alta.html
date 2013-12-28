@@ -9,12 +9,16 @@ class="active"
 {% endblock %}
 
 {% block tab_crear %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
 /productos/alta/
 {% endblock %}
-{% block tab_editar %}
+{% block link_editar %}
 /productos/listado/
 {% endblock %}
-{% block tab_eliminar %}
+{% block link_eliminar %}
 /productos/baja/
 {% endblock %}
 
@@ -22,7 +26,6 @@ class="active"
 			<div class="col-md-9">
 				<div class="tab-content">
 				  <div class="tab-pane active" id="crear-producto">
-				  	<h1>Alta de Productos</h1>
 						<form action="" method="post" class="form">{% csrf_token %}
 							{{ form.as_p }}
 							<input type="submit" value="Enviar" />

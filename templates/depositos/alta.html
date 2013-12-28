@@ -8,12 +8,31 @@
 class="active"
 {% endblock %}
 
+{% block tab_crear %}
+class="active"
+{% endblock %}
+
+{% block link_crear %}
+/depositos/alta/
+{% endblock %}
+{% block link_editar %}
+/depositos/listado/
+{% endblock %}
+{% block link_eliminar %}
+/depositos/baja/
+{% endblock %}
+
 {% block content %}
-	<h1>Alta de Almac&eacute;n</h1>
-	<form action="" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		{{ ubicacion_form.management_form }}
-		{{ ubicacion_form.as_p }}
-		<input type="submit" value="Enviar" />
-	</form>
+			<div class="col-md-9">
+				<div class="tab-content">
+				  <div class="tab-pane active" id="crear-producto">
+					<form action="" method="post">{% csrf_token %}
+						{{ form.as_p }}
+						{{ ubicacion_form.management_form }}
+						{{ ubicacion_form.as_p }}
+						<input type="submit" value="Enviar" />
+					</form>
+				  </div>
+				</div>
+			</div>
 {% endblock %}
