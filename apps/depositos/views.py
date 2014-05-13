@@ -22,7 +22,7 @@ class Alta(CreateView):
     template_name = 'depositos/alta.html'
     model = Deposito
     form_class = AltaDeDeposito
-    form_class_segundo = UbicacionFormSet
+    #form_class_segundo = UbicacionFormSet
     success_url = '/'
     
     def get(self, request, *args, **kwargs):
